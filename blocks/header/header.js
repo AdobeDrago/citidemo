@@ -209,11 +209,17 @@ export default async function decorate(block) {
   if (navSections) {
     // DA's markdown pipeline wraps an <li>'s direct link in a <p> when the
     // <li> also contains a nested <ul>. Local `aem up` serves the file raw
-    // (no <p>). Unwrap those <p>s so the rendered structure — and the CSS
-    // that targets `li > a` — is identical in both environments. Idempotent.
+    // (no <p>). That <p> wrapper also makes decorateButtons() tag the link
+    // as class="button" (single-link-in-<p> rule), which doesn't happen
+    // locally. Unwrap the <p> AND strip the button classes so the rendered
+    // structure — and the CSS that targets `li > a` — is identical in both
+    // environments. Idempotent.
     navSections.querySelectorAll(':scope li > p').forEach((p) => {
       if (p.children.length === 1 && p.firstElementChild.tagName === 'A') {
-        p.replaceWith(p.firstElementChild);
+        const a = p.firstElementChild;
+        a.classList.remove('button', 'primary', 'secondary');
+        if (!a.classList.length) a.removeAttribute('class');
+        p.replaceWith(a);
       }
     });
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
