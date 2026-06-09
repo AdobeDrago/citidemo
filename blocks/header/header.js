@@ -175,12 +175,16 @@ async function buildBreadcrumbs() {
 export default async function decorate(block) {
   // load nav as fragment
   const navMeta = getMetadata('nav');
-  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
-  // production serves the fragment at the root path; the local `aem up`
-  // preview serves it under /content. Try the resolved path first, then
-  // fall back to the /content-prefixed path for local development.
-  const fragment = await loadFragment(navPath)
-    || await loadFragment(`/content${navPath}`);
+  // The local `aem up` preview serves content under /content (and the
+  // current page path reflects that); production serves it at the root.
+  // Derive the prefix from the current page so the fragment resolves to
+  // the right place in both environments instead of hitting the wrong
+  // (boilerplate) fragment that exists at the root during local preview.
+  const contentPrefix = window.location.pathname.startsWith('/content/') ? '/content' : '';
+  const navPath = navMeta
+    ? new URL(navMeta, window.location).pathname
+    : `${contentPrefix}/nav`;
+  const fragment = await loadFragment(navPath);
 
   // decorate nav DOM
   block.textContent = '';
