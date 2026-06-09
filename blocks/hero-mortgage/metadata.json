@@ -1,0 +1,39 @@
+{
+  "variantName": "hero-mortgage",
+  "baseBlock": "hero",
+  "version": "1.0.0",
+  "created": "2026-06-08T19:34:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.citi.com/mortgage/home-mortgage",
+    "originPage": "Mortgage product landing page",
+    "blockPosition": "top"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "dark",
+    "density": "spacious",
+    "purpose": "product-hero",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "eyebrow + heading + description + 2 CTAs + image",
+    "buttonCount": 2,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "mortgage product pages",
+      "financial product landing pages",
+      "pages with prominent CTA and hero image"
+    ],
+    "notSuitableFor": [
+      "blog posts without hero images",
+      "simple text-only pages",
+      "minimal landing pages"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/mortgage/home-mortgage"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-08T19:34:00.000Z"
+  }
+}

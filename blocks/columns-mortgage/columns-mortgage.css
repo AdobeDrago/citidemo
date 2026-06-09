@@ -1,0 +1,247 @@
+/* columns-mortgage block
+ * Variant 1: Two-column promo (in blue-gradient section) - h3 headings, CTAs, OR divider
+ * Variant 2: Image-right (HomeStory) - text on left, image on right
+ * Note: JD Power (image-left) is loaded as a fragment, not styled here directly
+ */
+
+/* === Base (mobile-first) === */
+.columns-mortgage > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-mortgage > div > div {
+  order: 1;
+}
+
+.columns-mortgage > div > .columns-mortgage-img-col {
+  order: 0;
+}
+
+.columns-mortgage > div > .columns-mortgage-img-col img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.columns-mortgage h2 {
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 42px;
+  color: var(--text-color);
+  margin: 0 0 8px;
+}
+
+.columns-mortgage h3 {
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 33.6px;
+  color: var(--text-color);
+  margin: 0 0 8px;
+}
+
+.columns-mortgage p {
+  font-size: 16px;
+  font-family: var(--body-font-family);
+  line-height: 24px;
+  color: var(--text-color);
+  margin: 0 0 16px;
+}
+
+.columns-mortgage a:any-link {
+  color: #056dae;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.columns-mortgage a:hover {
+  text-decoration: underline;
+}
+
+/* Button reset - all buttons in columns-mortgage become text links by default */
+.columns-mortgage .button-container {
+  margin: 8px 0;
+  padding: 0;
+}
+
+.columns-mortgage .button-container a.button:any-link {
+  background-color: transparent;
+  color: #056dae;
+  padding: 0;
+  border-radius: 0;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  text-decoration: none;
+  display: inline;
+  margin: 0;
+  white-space: normal;
+}
+
+.columns-mortgage .button-container a.button:hover {
+  background-color: transparent;
+  color: #056dae;
+  text-decoration: underline;
+}
+
+/* Underline style for informational links */
+.columns-mortgage p a:not(.button):any-link {
+  text-decoration: underline;
+  font-weight: 300;
+}
+
+/* === Blue-gradient section variant (two-column promo) === */
+.section.blue-gradient .columns-mortgage h3 {
+  color: var(--text-color);
+}
+
+.section.blue-gradient .columns-mortgage p {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-color);
+  margin: 0 0 16px;
+}
+
+.section.blue-gradient .columns-mortgage > div {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 32px;
+  gap: 0;
+  position: relative;
+}
+
+.section.blue-gradient .columns-mortgage > div > div {
+  padding: 24px 0;
+}
+
+.section.blue-gradient .columns-mortgage > div > div:first-child {
+  padding-top: 0;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.section.blue-gradient .columns-mortgage > div > div:last-child {
+  padding-top: 24px;
+  padding-bottom: 0;
+}
+
+/* First column "Get started" button - light blue pill */
+.section.blue-gradient .columns-mortgage > div > div:first-child .button-container a.button:any-link {
+  background-color: #eff3f8;
+  color: #056dae;
+  padding: 11px 16px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline-block;
+}
+
+.section.blue-gradient .columns-mortgage > div > div:first-child .button-container a.button:hover {
+  background-color: #e0e8f0;
+}
+
+/* Disclaimer text in first column (last paragraph) */
+.section.blue-gradient .columns-mortgage > div > div:first-child p:last-child {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--text-color);
+  margin-top: 16px;
+}
+
+.section.blue-gradient .columns-mortgage > div > div:first-child p:last-child a {
+  font-size: 12px;
+  font-weight: 400;
+  text-decoration: underline;
+}
+
+/* Second column "Explore" link - text link style with arrow */
+.section.blue-gradient .columns-mortgage > div > div:last-child .button-container a.button:any-link {
+  background-color: transparent;
+  color: #056dae;
+  padding: 0;
+  border-radius: 0;
+  font-size: 16px;
+  font-weight: 700;
+  display: inline;
+}
+
+.section.blue-gradient .columns-mortgage > div > div:last-child .button-container a.button::after {
+  content: " \203A";
+  font-size: 20px;
+  margin-left: 4px;
+}
+
+/* OR divider - mobile: between stacked cards */
+.section.blue-gradient .columns-mortgage > div::after {
+  content: "OR";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--text-color);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* === Desktop layout === */
+@media (width >= 900px) {
+  .columns-mortgage > div {
+    flex-direction: row;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .columns-mortgage > div > div {
+    flex: 1;
+    order: unset;
+  }
+
+  .columns-mortgage > div > .columns-mortgage-img-col {
+    flex: 0 0 42%;
+    order: unset;
+  }
+
+  /* Blue-gradient promo: side by side with vertical divider */
+  .section.blue-gradient .columns-mortgage > div {
+    padding: 64px;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .section.blue-gradient .columns-mortgage > div > div {
+    flex: 1 1 0%;
+    padding: 0 40px;
+    border-bottom: none;
+  }
+
+  .section.blue-gradient .columns-mortgage > div > div:first-child {
+    padding-left: 0;
+    padding-top: 0;
+    padding-right: 40px;
+    border-right: 1px solid #e0e0e0;
+    border-bottom: none;
+  }
+
+  .section.blue-gradient .columns-mortgage > div > div:last-child {
+    padding-right: 0;
+    padding-top: 0;
+    padding-left: 40px;
+  }
+
+  /* OR divider - desktop: centered on vertical border */
+  .section.blue-gradient .columns-mortgage > div::after {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

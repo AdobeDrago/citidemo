@@ -1,0 +1,39 @@
+{
+  "variantName": "quote-mortgage",
+  "baseBlock": "quote",
+  "version": "1.0.0",
+  "created": "2026-06-08T19:34:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.citi.com/mortgage/home-mortgage",
+    "originPage": "Mortgage product landing page",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "grey",
+    "density": "spacious",
+    "purpose": "testimonial",
+    "imagePattern": "icon"
+  },
+  "contentPattern": {
+    "structure": "rating + heading + quote text + attribution + link",
+    "buttonCount": 1,
+    "imageCount": 2
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "mortgage product pages with customer testimonials",
+      "financial services pages with Zillow reviews",
+      "pages featuring customer satisfaction ratings"
+    ],
+    "notSuitableFor": [
+      "simple pull quotes without ratings",
+      "pages without customer review content",
+      "editorial quote callouts"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/mortgage/home-mortgage"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-08T19:34:00.000Z"
+  }
+}

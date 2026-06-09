@@ -1,0 +1,184 @@
+/* Block: quote-mortgage */
+
+/* Two variants: rating display and testimonial */
+
+/* Common styles */
+.quote-mortgage {
+  color: var(--text-color);
+  font-weight: 300;
+  line-height: 24px;
+  max-width: 1075px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.quote-mortgage p {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 24px;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.quote-mortgage a:any-link {
+  color: rgb(5 109 174);
+  font-size: 16px;
+  font-weight: 300;
+  text-decoration: underline;
+}
+
+/* Reset EDS button styling for links in this block */
+.quote-mortgage a.button:any-link {
+  background-color: transparent;
+  color: rgb(5 109 174);
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  font-size: 16px;
+  font-weight: 300;
+  text-decoration: underline;
+  display: inline;
+  margin: 0;
+  white-space: normal;
+}
+
+.quote-mortgage a.button:hover {
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.quote-mortgage .button-container {
+  display: inline;
+}
+
+.quote-mortgage img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+
+/* === RATING VARIANT === */
+.quote-mortgage.quote-mortgage-rating {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.quote-mortgage.quote-mortgage-rating .rating-content {
+  text-align: center;
+}
+
+.quote-mortgage.quote-mortgage-rating .rating-number {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 34px;
+  color: var(--text-color);
+}
+
+.quote-mortgage.quote-mortgage-rating .rating-subtext {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--text-color);
+}
+
+.quote-mortgage.quote-mortgage-rating .rating-description {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  text-align: center;
+}
+
+.quote-mortgage.quote-mortgage-rating .rating-logo img {
+  height: auto;
+  width: 120px;
+  max-width: 120px;
+}
+
+.quote-mortgage.quote-mortgage-rating .rating-copyright {
+  font-size: 16px;
+  font-weight: 300;
+  color: var(--text-color);
+}
+
+.quote-mortgage.quote-mortgage-rating .rating-link {
+  margin-top: 4px;
+}
+
+@media (width >= 900px) {
+  .quote-mortgage.quote-mortgage-rating {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 24px;
+  }
+
+  .quote-mortgage.quote-mortgage-rating .rating-content {
+    text-align: left;
+  }
+
+  .quote-mortgage.quote-mortgage-rating .rating-description {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
+/* === TESTIMONIAL VARIANT === */
+.quote-mortgage.quote-mortgage-testimonial .testimonial-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.quote-mortgage.quote-mortgage-testimonial .testimonial-icon {
+  flex-shrink: 0;
+  margin-bottom: 8px;
+}
+
+.quote-mortgage.quote-mortgage-testimonial .testimonial-icon img {
+  width: 48px;
+  height: auto;
+}
+
+.quote-mortgage.quote-mortgage-testimonial .testimonial-text h2 {
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 42px;
+  color: var(--text-color);
+  margin: 0 0 8px;
+}
+
+.quote-mortgage.quote-mortgage-testimonial .testimonial-review {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.quote-mortgage.quote-mortgage-testimonial .testimonial-review .review-title {
+  font-weight: 700;
+  margin: 0 0 24px;
+}
+
+.quote-mortgage.quote-mortgage-testimonial .testimonial-review .review-body {
+  margin: 0 0 24px;
+}
+
+.quote-mortgage.quote-mortgage-testimonial .testimonial-review .review-attribution {
+  margin: 0 0 24px;
+}
+
+.quote-mortgage.quote-mortgage-testimonial .testimonial-link {
+  margin-top: 4px;
+}
+
+@media (width >= 900px) {
+  .quote-mortgage.quote-mortgage-testimonial .testimonial-content {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .quote-mortgage.quote-mortgage-testimonial .testimonial-text h2 {
+    font-size: 32px;
+  }
+}

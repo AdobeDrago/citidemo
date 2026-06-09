@@ -1,0 +1,116 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "mortgage-page",
+      "urls": ["https://www.citi.com/mortgage/home-mortgage"],
+      "description": "Mortgage product landing page with rates, calculators, and product information",
+      "blocks": [
+        {
+          "name": "hero-mortgage",
+          "instances": ["section#app-hero.hero", "section.banner.callout-shadow"]
+        },
+        {
+          "name": "cards-mortgage",
+          "instances": ["app-hero .rtb-tiles", "section.crosslink", "app-benefit-cards .benefitcards__container", "app-contactus section.contactus"]
+        },
+        {
+          "name": "columns-mortgage",
+          "instances": ["section#preferredProgram.banner.image-left", "section#app-twocolumnteaser.twocolumnteaser", "section#app-banner.banner.image-right"]
+        },
+        {
+          "name": "quote-mortgage",
+          "instances": ["section#app-utility-banner.utilitybanner"]
+        },
+        {
+          "name": "accordion-legal",
+          "instances": ["section#app-accordion.accordion.legal"]
+        }
+      ],
+      "sections": [
+        {
+          "id": "section-1-hero",
+          "name": "Hero",
+          "selector": "app-hero",
+          "style": null,
+          "blocks": ["hero-mortgage"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-2-action-tiles",
+          "name": "Action Tiles",
+          "selector": ["app-hero .rtb-headline", "app-hero .rtb-tiles", "app-cross-link section.crosslink"],
+          "style": null,
+          "blocks": ["cards-mortgage"],
+          "defaultContent": ["app-hero .rtb-headline h2"]
+        },
+        {
+          "id": "section-3-jd-power",
+          "name": "JD Power Award Banner",
+          "selector": "section#preferredProgram.banner.image-left",
+          "style": null,
+          "blocks": ["columns-mortgage"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-4-promo",
+          "name": "Promotional Offer",
+          "selector": "app-twocolumnteaser",
+          "style": "blue-gradient",
+          "blocks": ["columns-mortgage"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-5-benefit-cards",
+          "name": "Benefit Cards",
+          "selector": "app-benefit-cards",
+          "style": null,
+          "blocks": ["cards-mortgage"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-6-all-you-need",
+          "name": "All You Need Banner",
+          "selector": "section.banner.callout-shadow",
+          "style": null,
+          "blocks": ["hero-mortgage"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-7-homestory",
+          "name": "Meet HomeStory",
+          "selector": "section#app-banner.banner.image-right",
+          "style": null,
+          "blocks": ["columns-mortgage"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-8-zillow",
+          "name": "Zillow Rating and Testimonial",
+          "selector": "app-utility-banner",
+          "style": "grey",
+          "blocks": ["quote-mortgage"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-9-contact",
+          "name": "Contact Us",
+          "selector": "app-contactus",
+          "style": null,
+          "blocks": ["cards-mortgage"],
+          "defaultContent": []
+        },
+        {
+          "id": "section-10-legal",
+          "name": "Legal Accordion",
+          "selector": "app-accordion",
+          "style": null,
+          "blocks": ["accordion-legal"],
+          "defaultContent": []
+        }
+      ]
+    }
+  ]
+}

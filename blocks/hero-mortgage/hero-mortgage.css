@@ -1,0 +1,214 @@
+/* Block: hero-mortgage */
+
+/* Extracted from source: https://www.citi.com/mortgage/home-mortgage */
+
+/* Source background: rgb(0, 45, 114), hero height: 382px at desktop */
+
+/* Wrapper: full-width override */
+.hero-mortgage-wrapper {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+/* Block root */
+.hero-mortgage {
+  background-color: #002d72;
+  color: #fff;
+  padding: 40px 24px;
+  position: relative;
+  overflow: hidden;
+  min-height: 280px;
+}
+
+.hero-mortgage h1,
+.hero-mortgage h2,
+.hero-mortgage h3,
+.hero-mortgage h4,
+.hero-mortgage h5,
+.hero-mortgage h6,
+.hero-mortgage p {
+  color: #fff;
+}
+
+/* Image row - contains hero lifestyle image */
+.hero-mortgage > div.hero-mortgage-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero-mortgage > div.hero-mortgage-image > div {
+  height: 100%;
+}
+
+.hero-mortgage > div.hero-mortgage-image picture {
+  display: block;
+  height: 100%;
+}
+
+.hero-mortgage > div.hero-mortgage-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Content row */
+.hero-mortgage > div.hero-mortgage-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 12px;
+  max-width: 1320px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Eyebrow text (h1 - uppercase small) */
+.hero-mortgage .hero-mortgage-eyebrow h1 {
+  font-size: 12px;
+  font-weight: 400;
+  font-family: var(--body-font-family);
+  line-height: 18px;
+  letter-spacing: 1.1px;
+  text-transform: uppercase;
+  color: #fff;
+  margin: 0;
+}
+
+/* Main heading */
+.hero-mortgage .hero-mortgage-heading h2 {
+  font-size: 32px;
+  font-weight: 700;
+  font-family: var(--heading-font-family);
+  line-height: 38px;
+  color: #fff;
+  margin: 0 0 8px;
+}
+
+/* Description paragraph */
+.hero-mortgage .hero-mortgage-description p {
+  font-size: 16px;
+  font-family: var(--body-font-family);
+  line-height: 24px;
+  color: #fff;
+  margin: 0;
+}
+
+/* CTA group wrapper - flex row for inline buttons */
+.hero-mortgage .hero-mortgage-cta-group {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 16px;
+  margin-top: 12px;
+  align-items: center;
+}
+
+.hero-mortgage .hero-mortgage-cta-group .button-container {
+  margin: 0;
+}
+
+.hero-mortgage .hero-mortgage-cta-group .button-container p {
+  margin: 0;
+}
+
+/* Primary button - white with blue text */
+.hero-mortgage a.button:any-link {
+  background-color: #fff;
+  color: #056dae;
+  border: 1px solid #fff;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: center;
+  display: inline-block;
+  margin: 4px 16px 4px 0;
+  white-space: nowrap;
+}
+
+.hero-mortgage a.button:hover {
+  background-color: #f0f0f0;
+  color: #056dae;
+  border-color: #f0f0f0;
+}
+
+/* Secondary button - transparent with white text/border */
+.hero-mortgage .hero-mortgage-cta-group .button-container:last-child a.button:any-link {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid transparent;
+  margin-right: 0;
+}
+
+.hero-mortgage .hero-mortgage-cta-group .button-container:last-child a.button:hover {
+  background-color: rgb(255 255 255 / 10%);
+  color: #fff;
+  border-color: rgb(255 255 255 / 30%);
+}
+
+/* No-image variant - text only on solid background */
+.hero-mortgage.no-image {
+  background-color: #002d72;
+}
+
+/* Desktop layout */
+@media (width >= 900px) {
+  .hero-mortgage {
+    padding: 0;
+    min-height: 382px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Image on right side, constrained within 1320px centered area */
+  .hero-mortgage.has-image > div.hero-mortgage-image {
+    position: absolute;
+    inset: 0 max(0px, calc((100% - 1320px) / 2)) 0 auto;
+    width: 50%;
+    max-width: 660px;
+  }
+
+  .hero-mortgage.has-image > div.hero-mortgage-image img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Content row at desktop — constrained within 1320px centered area */
+  .hero-mortgage > div.hero-mortgage-content {
+    padding: 48px 60px;
+    max-width: 660px;
+    width: 50%;
+    gap: 12px;
+    justify-content: center;
+    margin: 0 auto 0 max(0px, calc((100% - 1320px) / 2));
+  }
+
+  .hero-mortgage.no-image > div.hero-mortgage-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 48px 60px;
+  }
+
+  /* Heading size at desktop */
+  .hero-mortgage .hero-mortgage-heading h2 {
+    font-size: 42px;
+    line-height: 50px;
+  }
+
+  /* CTA group at desktop */
+  .hero-mortgage .hero-mortgage-cta-group {
+    margin-top: 24px;
+  }
+}
+
+/* Large desktop */
+@media (width >= 1200px) {
+  .hero-mortgage > div.hero-mortgage-content {
+    padding: 48px 60px 48px 72px;
+  }
+}
