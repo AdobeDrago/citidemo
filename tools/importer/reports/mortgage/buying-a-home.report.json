@@ -1,0 +1,19 @@
+{
+  "status": "success",
+  "url": "https://www.citi.com/mortgage/buying-a-home",
+  "path": "mortgage/buying-a-home",
+  "timestamp": "2026-06-09T14:38:51.600Z",
+  "title": "Buying a Home | Citi.com",
+  "template": "mortgage-page",
+  "blocks": [
+    "hero-mortgage",
+    "hero-mortgage",
+    "hero-mortgage",
+    "cards-mortgage",
+    "cards-mortgage",
+    "columns-mortgage",
+    "columns-mortgage",
+    "columns-mortgage",
+    "accordion-legal"
+  ]
+}

@@ -1,0 +1,96 @@
+/* Block: accordion-legal -- Legal disclosure accordion */
+
+/* Minimal clean style, no borders, chevron icon on left */
+
+.accordion-legal {
+  color: var(--text-color);
+  padding: 32px 12px;
+  max-width: 720px;
+}
+
+.accordion-legal details {
+  border: none;
+}
+
+.accordion-legal details + details {
+  margin-top: 0;
+}
+
+.accordion-legal details summary {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0;
+  padding-left: 34px;
+  cursor: pointer;
+  list-style: none;
+  background-color: var(--background-color);
+  transition: background-color 0.2s;
+}
+
+.accordion-legal details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Chevron icon on left side - points down when collapsed, up when expanded */
+.accordion-legal details summary::after {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 50%;
+  transform: translateY(-70%) rotate(45deg);
+  width: 10px;
+  height: 10px;
+  border: 2px solid #056dae;
+  border-width: 0 2px 2px 0;
+  transition: transform 0.2s;
+}
+
+.accordion-legal details[open] summary::after {
+  transform: translateY(-30%) rotate(-135deg);
+}
+
+.accordion-legal details summary:focus,
+.accordion-legal details summary:hover {
+  background-color: transparent;
+}
+
+.accordion-legal details summary h2 {
+  font-size: 14px;
+  font-weight: 700;
+  font-family: var(--heading-font-family);
+  line-height: 18px;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.accordion-legal details .accordion-legal-item-body {
+  padding: 16px 0 0;
+}
+
+.accordion-legal details[open] .accordion-legal-item-body {
+  border-top: none;
+  background-color: transparent;
+}
+
+.accordion-legal p,
+.accordion-legal details .accordion-legal-item-body p {
+  font-size: 12px;
+  font-family: var(--body-font-family);
+  line-height: 18px;
+  color: var(--text-color);
+  margin: 0 0 12px;
+}
+
+.accordion-legal a:any-link {
+  color: #056dae;
+  font-size: 12px;
+  font-weight: 300;
+  text-decoration: none;
+}
+
+.accordion-legal a:hover {
+  text-decoration: underline;
+}

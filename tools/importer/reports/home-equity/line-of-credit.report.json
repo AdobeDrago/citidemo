@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.citi.com/home-equity/line-of-credit",
+  "path": "home-equity/line-of-credit",
+  "timestamp": "2026-06-09T14:37:05.674Z",
+  "title": "Home Equity Line of Credit (HELOC) | Citi.com",
+  "template": "mortgage-page",
+  "blocks": [
+    "hero-mortgage",
+    "cards-mortgage",
+    "quote-mortgage",
+    "quote-mortgage",
+    "accordion-legal"
+  ]
+}

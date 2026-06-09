@@ -1,0 +1,169 @@
+/* Block: cards-mortgage -- styled from source computed values */
+
+/* Supports three card patterns: action tiles with icons, benefit cards with images, and contact cards */
+
+.cards-mortgage > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cards-mortgage > ul > li {
+  background-color: var(--background-color);
+  border-radius: 9px;
+  box-shadow: rgb(0 0 0 / 10%) 0 1px 10px 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+/* === Text body cell === */
+.cards-mortgage .cards-mortgage-card-body {
+  flex: 1;
+}
+
+/* Hide empty card-body divs (contact cards have empty first cell) */
+.cards-mortgage .cards-mortgage-card-body:empty {
+  display: none;
+}
+
+/* === Image cell === */
+.cards-mortgage .cards-mortgage-card-image {
+  line-height: 0;
+  flex-shrink: 0;
+}
+
+.cards-mortgage .cards-mortgage-card-image picture,
+.cards-mortgage .cards-mortgage-card-image img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 0;
+}
+
+.cards-mortgage .cards-mortgage-card-body h2 {
+  font-size: var(--heading-font-size-xl);
+  font-weight: 700;
+  color: var(--text-color);
+  line-height: 1.25;
+  margin: 0 0 6px;
+}
+
+.cards-mortgage .cards-mortgage-card-body h3 {
+  font-size: 28px;
+  font-weight: 300;
+  color: var(--text-color);
+  line-height: 34px;
+  margin: 0 0 8px;
+}
+
+.cards-mortgage .cards-mortgage-card-body p {
+  font-size: var(--body-font-size-m);
+  color: var(--text-color);
+  line-height: 24px;
+  margin: 0 0 4px;
+}
+
+.cards-mortgage .cards-mortgage-card-body a:any-link {
+  color: var(--link-color);
+  font-size: var(--body-font-size-m);
+  font-weight: 300;
+  text-decoration: none;
+}
+
+.cards-mortgage .cards-mortgage-card-body a:hover {
+  text-decoration: underline;
+}
+
+/* Contact cards use teal link color */
+.cards-mortgage > ul:not(:has(.cards-mortgage-card-image picture)) .cards-mortgage-card-body a:any-link {
+  color: rgb(5 109 174);
+}
+
+/* Reset EDS button styling for plain links inside cards */
+main .cards-mortgage a.button:any-link {
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  color: var(--link-color);
+  font-weight: 300;
+  font-size: var(--body-font-size-m);
+  text-align: left;
+  white-space: normal;
+  display: inline;
+}
+
+main .cards-mortgage a.button:hover {
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+main .cards-mortgage > ul:not(:has(.cards-mortgage-card-image picture)) a.button:any-link {
+  color: rgb(5 109 174);
+}
+
+main .cards-mortgage .button-container {
+  display: block;
+  margin: 0;
+}
+
+/* === Contact cards pattern: no images, shared container ===
+   When li has no picture inside, the entire ul becomes the shadow container */
+.cards-mortgage > ul:not(:has(.cards-mortgage-card-image picture)) {
+  background-color: var(--background-color);
+  border-radius: 9px;
+  box-shadow: rgb(0 0 0 / 10%) 0 1px 10px 0;
+  padding: 24px;
+  gap: 0;
+}
+
+.cards-mortgage > ul:not(:has(.cards-mortgage-card-image picture)) > li {
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  padding: 0 24px;
+  border-right: 1px solid #e0e0e0;
+}
+
+.cards-mortgage > ul:not(:has(.cards-mortgage-card-image picture)) > li:last-child {
+  border-right: none;
+}
+
+/* Desktop layout */
+@media (width >= 900px) {
+  .cards-mortgage > ul {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .cards-mortgage > ul > li {
+    flex: 1 1 0%;
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .cards-mortgage .cards-mortgage-card-image picture,
+  .cards-mortgage .cards-mortgage-card-image img {
+    width: 48px;
+    height: 48px;
+  }
+
+  /* Contact cards pattern (no images) - row layout with separators */
+  .cards-mortgage > ul:not(:has(.cards-mortgage-card-image picture)) {
+    flex-direction: row;
+    gap: 0;
+  }
+
+  .cards-mortgage > ul:not(:has(.cards-mortgage-card-image picture)) > li {
+    flex: 1 1 0%;
+    flex-direction: column;
+    padding: 0 24px;
+  }
+}

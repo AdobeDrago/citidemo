@@ -1,0 +1,39 @@
+{
+  "variantName": "accordion-legal",
+  "baseBlock": "accordion",
+  "version": "1.0.0",
+  "created": "2026-06-08T19:34:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.citi.com/mortgage/home-mortgage",
+    "originPage": "Mortgage product landing page",
+    "blockPosition": "bottom"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "compact",
+    "purpose": "legal-disclosures",
+    "imagePattern": "noimg"
+  },
+  "contentPattern": {
+    "structure": "title + expandable body text",
+    "buttonCount": 0,
+    "imageCount": 0
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "pages with legal disclaimers",
+      "financial product pages with disclosure requirements",
+      "FAQ sections with expandable content"
+    ],
+    "notSuitableFor": [
+      "marketing FAQ sections with rich media",
+      "product feature accordions with images",
+      "interactive configuration panels"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/mortgage/home-mortgage"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-08T19:34:00.000Z"
+  }
+}

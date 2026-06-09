@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.citi.com/mortgage/refinancing-your-home",
+  "path": "mortgage/refinancing-your-home",
+  "timestamp": "2026-06-09T14:37:57.554Z",
+  "title": "Refinancing Your Home | Citi.com",
+  "template": "mortgage-page",
+  "blocks": [
+    "hero-mortgage",
+    "hero-mortgage",
+    "hero-mortgage",
+    "cards-mortgage",
+    "cards-mortgage",
+    "columns-mortgage",
+    "columns-mortgage",
+    "accordion-legal"
+  ]
+}

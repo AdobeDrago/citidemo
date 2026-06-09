@@ -1,0 +1,40 @@
+{
+  "variantName": "columns-mortgage",
+  "baseBlock": "columns",
+  "version": "1.0.0",
+  "created": "2026-06-08T19:34:00.000Z",
+  "sourceContext": {
+    "originUrl": "https://www.citi.com/mortgage/home-mortgage",
+    "originPage": "Mortgage product landing page",
+    "blockPosition": "middle"
+  },
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "product-feature",
+    "imagePattern": "large"
+  },
+  "contentPattern": {
+    "structure": "image + heading + description + list + CTA",
+    "buttonCount": 1,
+    "imageCount": 1
+  },
+  "reuseGuidance": {
+    "suitableFor": [
+      "mortgage product pages",
+      "financial services feature sections",
+      "award/recognition banners with image and text",
+      "product promotional sections"
+    ],
+    "notSuitableFor": [
+      "simple text-only two-column layouts",
+      "pages requiring more than 2 columns",
+      "data comparison layouts"
+    ]
+  },
+  "usage": {
+    "pagesUsing": ["/mortgage/home-mortgage"],
+    "reuseCount": 1,
+    "lastUsed": "2026-06-08T19:34:00.000Z"
+  }
+}
