@@ -207,6 +207,15 @@ export default async function decorate(block) {
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
+    // DA's markdown pipeline wraps an <li>'s direct link in a <p> when the
+    // <li> also contains a nested <ul>. Local `aem up` serves the file raw
+    // (no <p>). Unwrap those <p>s so the rendered structure — and the CSS
+    // that targets `li > a` — is identical in both environments. Idempotent.
+    navSections.querySelectorAll(':scope li > p').forEach((p) => {
+      if (p.children.length === 1 && p.firstElementChild.tagName === 'A') {
+        p.replaceWith(p.firstElementChild);
+      }
+    });
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
       if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
       navSection.addEventListener('click', () => {
