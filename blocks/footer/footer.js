@@ -6,9 +6,12 @@ export default async function decorate(block) {
     ? new URL(footerMeta, window.location).pathname
     : '/footer';
 
-  let resp = await fetch('/content/footer.plain.html');
+  // production serves the fragment at the root path; the local `aem up`
+  // preview serves it under /content. Try the resolved path first, then
+  // fall back to the /content-prefixed path for local development.
+  let resp = await fetch(`${footerPath}.plain.html`);
   if (!resp.ok) {
-    resp = await fetch(`${footerPath}.plain.html`);
+    resp = await fetch(`/content${footerPath}.plain.html`);
   }
   if (!resp.ok) return;
 

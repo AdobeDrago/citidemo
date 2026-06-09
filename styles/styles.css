@@ -305,3 +305,27 @@ main .section.blue-gradient a.button:hover {
 main .button-container {
   display: inline;
 }
+
+/* Filled-CTA section style: opt-in solid blue buttons (e.g. homepage).
+   Overrides the text-link CTA treatment in shared card/column blocks
+   without affecting pages that don't carry this section class. */
+main .section.filled-cta .cards-mortgage a.button:any-link,
+main .section.filled-cta .columns-mortgage a.button:any-link {
+  display: inline-block;
+  background-color: var(--link-color);
+  color: #fff;
+  border: 1px solid var(--link-color);
+  border-radius: var(--citi-radius, 8px);
+  padding: 10px 20px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: normal;
+}
+
+main .section.filled-cta .cards-mortgage a.button:hover,
+main .section.filled-cta .columns-mortgage a.button:hover {
+  background-color: var(--link-hover-color);
+  border-color: var(--link-hover-color);
+  color: #fff;
+  text-decoration: none;
+}

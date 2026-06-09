@@ -111,6 +111,29 @@
           "defaultContent": []
         }
       ]
+    },
+    {
+      "name": "home-page",
+      "urls": ["https://www.citi.com"],
+      "description": "Citi homepage — promotional hero, line-of-business tiles, product cards, and teaser sections. Authored directly from analysis reusing existing block variants (no new blocks).",
+      "blocks": [
+        {
+          "name": "hero-mortgage",
+          "instances": [".hero-mortgage"]
+        },
+        {
+          "name": "tiles",
+          "instances": [".tiles"]
+        },
+        {
+          "name": "cards-mortgage",
+          "instances": [".cards-mortgage"]
+        },
+        {
+          "name": "columns-mortgage",
+          "instances": [".columns-mortgage"]
+        }
+      ]
     }
   ]
 }
