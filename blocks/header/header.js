@@ -175,8 +175,12 @@ async function buildBreadcrumbs() {
 export default async function decorate(block) {
   // load nav as fragment
   const navMeta = getMetadata('nav');
-  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/content/nav';
-  const fragment = await loadFragment(navPath);
+  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
+  // production serves the fragment at the root path; the local `aem up`
+  // preview serves it under /content. Try the resolved path first, then
+  // fall back to the /content-prefixed path for local development.
+  const fragment = await loadFragment(navPath)
+    || await loadFragment(`/content${navPath}`);
 
   // decorate nav DOM
   block.textContent = '';
