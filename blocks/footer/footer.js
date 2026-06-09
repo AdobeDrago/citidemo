@@ -2,17 +2,16 @@ import { getMetadata } from '../../scripts/aem.js';
 
 export default async function decorate(block) {
   const footerMeta = getMetadata('footer');
+  // The local `aem up` preview serves content under /content (and the
+  // current page path reflects that); production serves it at the root.
+  // Derive the prefix from the current page so the fragment resolves to
+  // the right place in both environments.
+  const contentPrefix = window.location.pathname.startsWith('/content/') ? '/content' : '';
   const footerPath = footerMeta
     ? new URL(footerMeta, window.location).pathname
-    : '/footer';
+    : `${contentPrefix}/footer`;
 
-  // production serves the fragment at the root path; the local `aem up`
-  // preview serves it under /content. Try the resolved path first, then
-  // fall back to the /content-prefixed path for local development.
-  let resp = await fetch(`${footerPath}.plain.html`);
-  if (!resp.ok) {
-    resp = await fetch(`/content${footerPath}.plain.html`);
-  }
+  const resp = await fetch(`${footerPath}.plain.html`);
   if (!resp.ok) return;
 
   const html = await resp.text();
