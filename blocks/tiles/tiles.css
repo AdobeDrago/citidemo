@@ -108,3 +108,21 @@
     border-right: none;
   }
 }
+
+/* "card" option: elevated white card that overlaps the preceding hero,
+   used on product landing pages (e.g. mortgage "What would you like to do?").
+   Opt-in via the block class — the base tiles row is unaffected. */
+.tiles.card {
+  background: #fff;
+  border-radius: var(--citi-radius, 8px);
+  box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
+  padding: 16px 24px 24px;
+}
+
+@media (width >= 900px) {
+  .section .tiles.card {
+    margin-top: -64px;
+    position: relative;
+    z-index: 1;
+  }
+}
