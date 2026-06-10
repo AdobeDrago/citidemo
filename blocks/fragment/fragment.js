@@ -19,7 +19,21 @@ import {
  */
 export async function loadFragment(path) {
   if (path) { //  && path.startsWith('/')
-    const resp = await fetch(`${path}.plain.html`);
+    // The local `aem up` preview serves authored content under /content
+    // (the current page path reflects that), while production serves it at
+    // the root. For root-relative fragment paths, add the /content prefix
+    // during local preview so the fragment resolves to the authored file
+    // instead of a stale root proxy. Idempotent: no-op in production and
+    // when the path is already /content-prefixed or absolute.
+    let fetchPath = path;
+    if (
+      path.startsWith('/')
+      && !path.startsWith('/content/')
+      && window.location.pathname.startsWith('/content/')
+    ) {
+      fetchPath = `/content${path}`;
+    }
+    const resp = await fetch(`${fetchPath}.plain.html`);
     if (resp.ok) {
       const main = document.createElement('main');
       main.innerHTML = await resp.text();
@@ -27,7 +41,7 @@ export async function loadFragment(path) {
       // reset base path for media to fragment base
       const resetAttributeBase = (tag, attr) => {
         main.querySelectorAll(`${tag}[${attr}^="./media_"]`).forEach((elem) => {
-          elem[attr] = new URL(elem.getAttribute(attr), new URL(path, window.location)).href;
+          elem[attr] = new URL(elem.getAttribute(attr), new URL(fetchPath, window.location)).href;
         });
       };
       resetAttributeBase('img', 'src');
