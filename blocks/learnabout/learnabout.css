@@ -1,0 +1,125 @@
+/* Block: learnabout — full-bleed banner with background image, heading,
+   and two differently-formatted CTAs. Styled from the Citi mortgage
+   "All you need to know about buying a home" section. */
+
+/* Full-width override: break the block out of the constrained section
+   container so the background image spans the whole page. */
+.learnabout-wrapper {
+  max-width: 100% !important;
+  padding: 0 !important;
+}
+
+.learnabout {
+  position: relative;
+  overflow: hidden;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+}
+
+/* Full-bleed background image */
+.learnabout .learnabout-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  margin: 0;
+}
+
+.learnabout .learnabout-image picture,
+.learnabout .learnabout-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Content overlay — constrained and centered horizontally within the page */
+.learnabout .learnabout-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--content-max-width, 1200px);
+  margin: 0 auto;
+  padding: 32px 24px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.learnabout .learnabout-heading {
+  margin: 0;
+}
+
+.learnabout .learnabout-heading h1,
+.learnabout .learnabout-heading h2,
+.learnabout .learnabout-heading h3,
+.learnabout .learnabout-heading h4 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--text-color);
+}
+
+/* CTA group */
+.learnabout .learnabout-cta-group {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+}
+
+/* Primary CTA — filled button */
+.learnabout a.learnabout-cta-primary:any-link {
+  display: inline-block;
+  background-color: #056dae;
+  color: #fff;
+  border: 1px solid #056dae;
+  border-radius: 8px;
+  padding: 11px 16px;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.learnabout a.learnabout-cta-primary:hover {
+  background-color: #045a90;
+  border-color: #045a90;
+  color: #fff;
+}
+
+/* Secondary CTA — text link */
+.learnabout a.learnabout-cta-secondary:any-link {
+  display: inline-block;
+  background: none;
+  border: none;
+  padding: 0;
+  color: #056dae;
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.learnabout a.learnabout-cta-secondary:hover {
+  text-decoration: underline;
+}
+
+/* Empty-last-CTA rule: right-justify the single primary button */
+.learnabout.learnabout-single-cta .learnabout-cta-group {
+  justify-content: flex-end;
+}
+
+/* Desktop */
+@media (width >= 900px) {
+  .learnabout {
+    min-height: 276px;
+  }
+
+  .learnabout .learnabout-content {
+    padding: 38px 32px;
+  }
+}
