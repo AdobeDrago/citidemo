@@ -27,7 +27,7 @@
   --heading-font-size-xs: 16px;
 
   /* nav heights */
-  --nav-height: 100px;
+  --nav-height: auto;
   --breadcrumbs-height: 34px;
   --header-height: var(--nav-height);
 }

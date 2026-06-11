@@ -20,7 +20,7 @@ import {
 // --- BEGIN DM/Scene7 auto-block (excat-generated) ---
 
 const DM_BREAKPOINTS = [
-  { media: '(min-width: 600px)', width: 2000 },
+  { media: '(min-width: 600px)', width: 1200 },
   { width: 750 },
 ];
 

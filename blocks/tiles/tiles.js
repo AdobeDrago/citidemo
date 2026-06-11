@@ -6,7 +6,7 @@ export default function decorate(block) {
   rows.forEach((row) => {
     const cells = [...row.children];
 
-    // Title row: a single cell with no image (optional block title)
+    // Title row: single cell with no image
     if (cells.length === 1 && !cells[0].querySelector('picture, img')) {
       const title = document.createElement('div');
       title.className = 'tiles-title';
@@ -21,17 +21,34 @@ export default function decorate(block) {
     const iconCell = cells[0];
     const bodyCell = cells[1];
 
+    // Header row: icon + heading side by side
+    const header = document.createElement('div');
+    header.className = 'tiles-tile-header';
+
     if (iconCell) {
       const pic = iconCell.querySelector('picture');
       if (pic) {
         const iconWrap = document.createElement('div');
         iconWrap.className = 'tiles-tile-icon';
         iconWrap.append(pic);
-        tile.append(iconWrap);
+        header.append(iconWrap);
       }
     }
 
     if (bodyCell) {
+      const heading = bodyCell.querySelector('h2, h3');
+      if (heading) {
+        const titleWrap = document.createElement('div');
+        titleWrap.className = 'tiles-tile-title';
+        titleWrap.append(heading); // moves heading out of bodyCell
+        header.append(titleWrap);
+      }
+    }
+
+    tile.append(header);
+
+    // Body: remaining content (links) after heading was removed
+    if (bodyCell && bodyCell.children.length > 0) {
       const bodyWrap = document.createElement('div');
       bodyWrap.className = 'tiles-tile-body';
       bodyWrap.innerHTML = bodyCell.innerHTML;
@@ -41,7 +58,6 @@ export default function decorate(block) {
     container.append(tile);
   });
 
-  // Remove the original table rows, keep the title (if appended) + container
   [...block.children].forEach((child) => {
     if (!child.classList.contains('tiles-title') && child !== container) {
       child.remove();

@@ -175,15 +175,7 @@ async function buildBreadcrumbs() {
 export default async function decorate(block) {
   // load nav as fragment
   const navMeta = getMetadata('nav');
-  // The local `aem up` preview serves content under /content (and the
-  // current page path reflects that); production serves it at the root.
-  // Derive the prefix from the current page so the fragment resolves to
-  // the right place in both environments instead of hitting the wrong
-  // (boilerplate) fragment that exists at the root during local preview.
-  const contentPrefix = window.location.pathname.startsWith('/content/') ? '/content' : '';
-  const navPath = navMeta
-    ? new URL(navMeta, window.location).pathname
-    : `${contentPrefix}/nav`;
+  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
   const fragment = await loadFragment(navPath);
 
   // decorate nav DOM
@@ -207,27 +199,33 @@ export default async function decorate(block) {
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
-    // DA's markdown pipeline wraps an <li>'s direct link in a <p> when the
-    // <li> also contains a nested <ul>. Local `aem up` serves the file raw
-    // (no <p>). That <p> wrapper also makes decorateButtons() tag the link
-    // as class="button" (single-link-in-<p> rule), which doesn't happen
-    // locally. Unwrap the <p> AND strip the button classes so the rendered
-    // structure — and the CSS that targets `li > a` — is identical in both
-    // environments. Idempotent.
-    navSections.querySelectorAll(':scope li > p').forEach((p) => {
-      if (p.children.length === 1 && p.firstElementChild.tagName === 'A') {
-        const a = p.firstElementChild;
-        a.classList.remove('button', 'primary', 'secondary');
-        if (!a.classList.length) a.removeAttribute('class');
-        p.replaceWith(a);
-      }
+    navSections.querySelectorAll('.button-container').forEach((el) => {
+      el.classList.remove('button-container');
     });
+    navSections.querySelectorAll('a.button').forEach((el) => {
+      el.classList.remove('button', 'primary', 'secondary');
+    });
+
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
       if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-      navSection.addEventListener('click', () => {
-        if (isDesktop.matches) {
-          const expanded = navSection.getAttribute('aria-expanded') === 'true';
+
+      // Desktop: open on hover
+      navSection.addEventListener('mouseenter', () => {
+        if (isDesktop.matches && navSection.classList.contains('nav-drop')) {
           toggleAllNavSections(navSections);
+          navSection.setAttribute('aria-expanded', 'true');
+        }
+      });
+      navSection.addEventListener('mouseleave', () => {
+        if (isDesktop.matches) {
+          navSection.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Mobile: click to toggle
+      navSection.addEventListener('click', () => {
+        if (!isDesktop.matches) {
+          const expanded = navSection.getAttribute('aria-expanded') === 'true';
           navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
         }
       });
@@ -236,10 +234,35 @@ export default async function decorate(block) {
 
   const navTools = nav.querySelector('.nav-tools');
   if (navTools) {
+    navTools.querySelectorAll('.button-container').forEach((el) => el.classList.remove('button-container'));
+    navTools.querySelectorAll('a.button').forEach((el) => el.classList.remove('button', 'primary', 'secondary'));
+
+    // Move ATM/Branch utility link to the brand row (top right)
+    const atmPara = Array.from(navTools.querySelectorAll('p')).find(
+      (p) => p.querySelector('a[href*="location"], a[title*="ATM"]'),
+    );
+    if (atmPara) {
+      const utilityBar = document.createElement('div');
+      utilityBar.className = 'nav-brand-utility';
+      utilityBar.append(atmPara);
+      navBrand.append(utilityBar);
+    }
+
     const search = navTools.querySelector('a[href*="search"]');
     if (search && search.textContent === '') {
       search.setAttribute('aria-label', 'Search');
     }
+  }
+
+  // Mark the active nav section based on the current URL
+  if (navSections) {
+    const currentPath = window.location.pathname;
+    navSections.querySelectorAll('.default-content-wrapper > ul > li').forEach((li) => {
+      const link = li.querySelector('p > a');
+      if (link && new URL(link.href, window.location.origin).pathname === currentPath) {
+        li.classList.add('nav-active');
+      }
+    });
   }
 
   // hamburger for mobile

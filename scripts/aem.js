@@ -261,7 +261,7 @@ function createOptimizedPicture(
   src,
   alt = '',
   eager = false,
-  breakpoints = [{ media: '(min-width: 600px)', width: '2000' }, { width: '750' }],
+  breakpoints = [{ media: '(min-width: 1000px)', width: '1200' }, { width: '750' }],
 ) {
   // --- BEGIN DM dispatch (excat-generated) ---
   // eslint-disable-next-line no-underscore-dangle
