@@ -21,7 +21,7 @@
 .columns-mortgage > div > .columns-mortgage-img-col img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 440px;
   object-fit: cover;
 }
 
@@ -200,7 +200,10 @@
     align-items: center;
     gap: 40px;
   }
-
+main > .columns-mortgage-container {
+  max-width: 1200px;
+  margin: 40px auto;
+}
   .columns-mortgage > div > div {
     flex: 1;
     order: unset;
