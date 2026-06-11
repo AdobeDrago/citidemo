@@ -280,7 +280,7 @@ main .section.grey {
 main .section.blue-gradient {
   background: linear-gradient(135deg, #003b70 0%, #04208f 100%);
   color: #fff;
-  margin: 0;
+  margin: 40px auto;
   padding: 48px 0;
 }
 
